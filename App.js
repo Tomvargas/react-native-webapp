@@ -14,9 +14,9 @@ function MyStack(){//function for screens
   return(
     <Stack.Navigator>
 
+      <Stack.Screen name="details" component={details}/>  
       <Stack.Screen name="register" component={register}/> 
       <Stack.Screen name="login" component={login}/>
-      <Stack.Screen name="details" component={details}/>  
 
     </Stack.Navigator>
   );
