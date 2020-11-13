@@ -1,13 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native'//add container libraries
+import { createStackNavigator } from "@react-navigation/stack";//add navigation container for all pages in app
+
+import login from './screens/login'
+import register from './screens/register'
+import details from './screens/details'
+
+const Stack=createStackNavigator()//instance navigator
+
+function MyStack(){//function for screens
+  return(
+    <Stack.Navigator>
+
+      <Stack.Screen name="register" component={register}/> 
+      <Stack.Screen name="login" component={login}/>
+      <Stack.Screen name="details" component={details}/>  
+
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MyStack/>
+    </NavigationContainer>
   );
 }
 
