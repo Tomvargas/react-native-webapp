@@ -1,30 +1,36 @@
 import React, {useState} from 'react'
 import { View, TextInput, Button, ScrollView, StyleSheet } from 'react-native'
 import firebase from '../database/firebase'
-const register = () => {
+const register = (props) => {//get a props (screens to be called)
     //<>
 
-    const [state, setState]=useState({
+    const [state, setState]=useState({//instance variables for each data input
         name: '',
         email:'',
         pass:''
     })
 
-    const getuserdata=(name,value)=>{
+    const getuserdata=(name,value)=>{// function to register input value in variables and reserve others variables each time
         setState({...state, [name]:value})
     }
 
-    const adduser= async () =>{
-        //console.log(state)
-        if(state.name==="" || state.email==="" || state.pass===""){
+    const adduser= async () =>{// init the function async mode for firebase connection
+        
+        if(state.name==="" || state.email==="" || state.pass===""){//instruction for fill all inputs in login form
             alert("Debe llenar todos los campos")
         }else{
-            await firebase.db.collection('users').add({
-                name: state.name,
-                email: state.email,
-                pass: state.pass
-            })
-            alert("Usuario registrado.")
+            try {
+                await firebase.db.collection('users').add({//call callection named users in firebase and add variables in satate
+                    name: state.name,
+                    email: state.email,
+                    pass: state.pass
+                })
+                alert("Usuario registrado.")
+                props.navigation.navigate('details');//call details screen
+            } catch (error) {
+               
+            }
+            
         }
     }
 

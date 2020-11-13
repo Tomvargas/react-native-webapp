@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 import 'firebase/firestore'
 
+//firebase script
 var firebaseConfig = {
     apiKey: "AIzaSyBb2BIDPZi2B8-cdXDIYWFU4ciG5cg9hHk",
     authDomain: "ecom-ec.firebaseapp.com",
@@ -13,8 +14,8 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-  const db=firebase.firestore()
+//end firebase script
+  const db=firebase.firestore()//declare firebase call in db const
   export default{
       firebase,
       db
