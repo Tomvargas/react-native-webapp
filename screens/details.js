@@ -28,7 +28,7 @@ const details = (props) => {
             {users.map((user) => {
                 
                 return (
-                    <ListItem bottomDivider onPress={()=> alert('tap tap madafaka')} key={user.id}>
+                    <ListItem bottomDivider onPress={()=> alert(user.pass)} key={user.id}>
                         
                         <Avatar rounded source={{ uri: 'https://www.alfabetajuega.com/wp-content/uploads/2019/08/dragon-ball-goku.jpg'}}/>
                         <ListItem.Content>

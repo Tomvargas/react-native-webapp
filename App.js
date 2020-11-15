@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";//add navigation 
 import login from './screens/login'
 import register from './screens/register'
 import details from './screens/details'
+import account from './screens/account'
 
 const Stack=createStackNavigator()//instance navigator
 
@@ -17,6 +18,7 @@ function MyStack(){//function for screens
       <Stack.Screen name="details" component={details}/>  
       <Stack.Screen name="register" component={register}/> 
       <Stack.Screen name="login" component={login}/>
+      <Stack.Screen name="account" component={account} />
 
     </Stack.Navigator>
   );
