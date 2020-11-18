@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { View, Button, TextInput, ScrollView, StyleSheet } from 'react-native'
 import firebase from "../database/firebase";
-import {ListItem, Avatar, Input} from 'react-native-elements'
+
 
 const login = (props) => {
     const [state, setState] = useState({//instance variables for each data input
@@ -35,7 +35,8 @@ const login = (props) => {
                 if(state.email===user.email && state.pass===user.pass){
                     const txt = "Hello "+user.name
                     alert(txt)
-                    props.navigation.navigate('account')
+                    props.navigation.navigate('account',{userid: user.id})
+                    
                 }
                 
             })
