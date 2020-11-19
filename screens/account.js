@@ -12,14 +12,15 @@ const account = (props) => {
         pass: ''
         })
     
-    const getuser=async (id)=>{
+    const getuser= async (id)=>{
+        
         const userdb=firebase.db.collection('users').doc(id)
-        const doc=await userdb.get();
+        const doc= await userdb.get();
         const user=doc.data();
         setuser({
             ...user,
             id: doc.id
-        })
+        })                
     }
     useEffect(() => { 
         getuser(props.route.params.userid);
@@ -29,10 +30,10 @@ const account = (props) => {
             <ListItem>
                 <Avatar rounded source={{ uri: 'https://www.alfabetajuega.com/wp-content/uploads/2019/08/dragon-ball-goku.jpg' }} />
                 <ListItem.Content>
-                    <ListItem.Title>name</ListItem.Title>
+                    <ListItem.Title>{user.name}</ListItem.Title>
                     <ListItem.Subtitle>this is a short description</ListItem.Subtitle>
                 </ListItem.Content>
-                <Button title='Update user data' />
+                <Button title='edit' />
             </ListItem>
         </ScrollView>
     );

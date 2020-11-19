@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, ScrollView, Text, View} from 'react-native'
+import { Button, ScrollView, StyleSheet, View} from 'react-native'
 import firebase from '../database/firebase'
 import {ListItem, Avatar} from 'react-native-elements'
 
@@ -21,9 +21,9 @@ const details = (props) => {
         });
     }, []);
     return(
-        <ScrollView>
-            <Button title="Register" onPress={()=> props.navigation.navigate('register')}/>
-            <Button title="Login" onPress={() => props.navigation.navigate('login')} />
+        <ScrollView style={css.containers}>
+            <Button style={css.btn} title="Register" onPress={()=> props.navigation.navigate('register')}/>
+            <Button style={css.btn} title="Login" onPress={() => props.navigation.navigate('login')} />
            
             {users.map((user) => {
                 
@@ -43,5 +43,15 @@ const details = (props) => {
         
     );
 }
+
+const css = StyleSheet.create({
+    containers: {
+        flex: 1,
+        margin: 30,
+    },
+    btn:{
+        margin:20,
+    }
+})
 
 export default details

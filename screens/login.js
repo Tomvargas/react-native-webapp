@@ -36,7 +36,7 @@ const login = (props) => {
                     const txt = "Hello "+user.name
                     alert(txt)
                     props.navigation.navigate('account',{userid: user.id})
-                    
+ 
                 }
                 
             })
